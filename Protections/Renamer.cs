@@ -26,7 +26,10 @@ namespace LoGiC.NET.Protections
 
             Program.Module.Mvid = Guid.NewGuid();
             Program.Module.Name = GenerateRandomString(MemberRenamer.StringLength());
-            Program.Module.EntryPoint.Name = GenerateRandomString(MemberRenamer.StringLength());
+            if (Program.Module.EntryPoint != null)
+            {
+                Program.Module.EntryPoint.Name = GenerateRandomString(MemberRenamer.StringLength());
+            }
 
             foreach (TypeDef type in Program.Module.Types)
             {

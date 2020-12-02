@@ -50,6 +50,11 @@ namespace LoGiC.NET.Protections
 
         private static string Encrypt(string str)
         {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return str;
+            }
+
             str = Convert.ToBase64String(Encoding.UTF32.GetBytes(str)); /*I'm using UTF32, but you can
             also use UTF8 or Unicode for example for shorter encryption.*/
             char[] chars = "*$,;:!ù^*&é\"'(-è_çà)".ToCharArray();
